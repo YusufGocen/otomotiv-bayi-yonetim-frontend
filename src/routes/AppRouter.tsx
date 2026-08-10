@@ -9,6 +9,7 @@ import CarPage from "../pages/Car/CarPage"
 import DealerPage from "../pages/Dealer/DealerPage"
 import SalesPage from "../pages/Sales/SalesPage"
 import AccountPage from "../pages/Account/AccountPage"
+import ProtectedRoute from "./ProtectedRoute"
 
 function AppRouter() {
   return (
@@ -18,15 +19,16 @@ function AppRouter() {
           
             <Route path="/login" element={<LoginPage/>}/>
           
-            <Route element={<AdminLayout/>}>
-              <Route path="dashboard" element={<DashboardPage/>}/>
-              <Route path="customers" element={<CustomerPage/>}/>
-              <Route path="cars" element={<CarPage/>}/>
-              <Route path="dealers" element={<DealerPage/>}/>
-              <Route path="sales" element={<SalesPage/>}/>
-              <Route path="account" element={<AccountPage/>}/>
+            <Route element={<ProtectedRoute/>}>
+              <Route element={<AdminLayout/>}>
+                <Route path="dashboard" element={<DashboardPage/>}/>
+                <Route path="customers" element={<CustomerPage/>}/>
+                <Route path="cars" element={<CarPage/>}/>
+                <Route path="dealers" element={<DealerPage/>}/>
+                <Route path="sales" element={<SalesPage/>}/>
+                <Route path="account" element={<AccountPage/>}/>
+              </Route>
             </Route>
-
             <Route path="*" element={<NotFound/>}/>
 
 
