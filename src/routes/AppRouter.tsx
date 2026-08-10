@@ -29,9 +29,8 @@ function AppRouter() {
                 <Route path="account" element={<AccountPage/>}/>
               </Route>
             </Route>
+
             <Route path="*" element={<NotFound/>}/>
-
-
 
         </Routes>
       </BrowserRouter>

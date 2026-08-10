@@ -9,3 +9,8 @@ export const authenticate=async(
     );
     return response.data;
 }
+
+export const logout =() => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+}

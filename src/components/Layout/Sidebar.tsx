@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate} from "react-router-dom";
 import {
     FaHome,
     FaUsers,
@@ -10,8 +10,16 @@ import {
   } from "react-icons/fa";
 
 import Logo from '../../assets/Logo.png'
+import {logout} from '../../services/authService'
 
 function SideBar(){
+
+    const navigate=useNavigate()
+
+    const handleLogout = () => {
+      logout()
+      navigate("login")
+    }
 
     const menuItems=[
         {
@@ -73,7 +81,9 @@ function SideBar(){
             </nav>
             
             <div className="border-t border-sidebar-muted/10 p-4">
-                <button type="button" 
+                <button 
+                type="button"
+                onClick={handleLogout} 
                 className="flex w-full items-center gap-4 rounded-lg px-4 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white cursor-pointer">
                     <FaSignOutAlt/>
                     <span>Çıkış Yap</span>
