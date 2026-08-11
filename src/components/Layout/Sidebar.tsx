@@ -54,7 +54,7 @@ function SideBar(){
         },
     ]
     return(
-        <aside className="flex h-screen w-60 flex-col bg-sidebar text-white">
+        <aside className="flex min-h-screen w-60 flex-col bg-sidebar text-white">
             {/* Logo */}
             <div className="flex items-center justify-center gap-3 h-20 border-b border-sidebar-muted/10 ">
                 <img src={Logo} alt="Otomotiv Bayi Yönetim Sistemi" className="h-18 object-contain" />
