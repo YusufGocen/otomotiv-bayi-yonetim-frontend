@@ -2,6 +2,8 @@ import { FaBell , FaUserCircle } from "react-icons/fa";
 
 function Navbar(){
 
+    const username=localStorage.getItem("username")
+
     return(
         <header className="flex h-20 items-center justify-between border-b border-border bg-surface px-6">
             
@@ -26,11 +28,11 @@ function Navbar(){
                     <FaUserCircle className="text-3xl text-secondary"/>
                     <div className="hidden sm:block">
                         <p className="text-sm font-semibold text-text">
-                            Kullanıcı
+                            {username}
                         </p>
 
                         <p className="text-xs text-secondary">
-                            Yönetici
+                            Kullanıcı
                         </p>
                     </div>
                 </div>

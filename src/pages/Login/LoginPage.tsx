@@ -33,6 +33,7 @@ export default function LoginPage() {
 
       localStorage.setItem("accessToken",response.payload.accessToken);
       localStorage.setItem("refreshToken",response.payload.refreshToken);
+      localStorage.setItem("username", data.username);
 
       navigate("/dashboard")
 

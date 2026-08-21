@@ -24,7 +24,7 @@ function StatCard({
                     <p className="text-sm font-medium text-secondary">
                         {title}
                     </p>
-                    <p className="mt-2 text-2xl font-bold text-text">
+                    <p className="mt-2 text-xl font-bold text-text">
                         {value}
                     </p>
                 </div>
