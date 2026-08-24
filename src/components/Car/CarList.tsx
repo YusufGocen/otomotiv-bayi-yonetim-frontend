@@ -3,9 +3,11 @@ import { FiEye, FiEdit2, FiTrash2 } from "react-icons/fi";
 
 interface CarListProps {
     cars: Car[];
+    onDetail: (car: Car) => void;
+    onDelete: (car: Car) => void;
   }
 
-export default function CarList({cars} : CarListProps) {
+export default function CarList({cars , onDetail , onDelete} : CarListProps) {
     return (
         <div className="rounded-xl border border-border bg-surface shadow-sm">
       
@@ -96,7 +98,7 @@ export default function CarList({cars} : CarListProps) {
 
                     <td className='px-5 py-4'>
                       <div className='flex items-center gap-3'>
-                        <button type='button' title='detay' className='flex h-9 w-9 items-center justify-center rounded-lg bg-background text-secondary transition hover:text-text cursor-pointer'>
+                        <button onClick={() => onDetail(car)} type='button' title='detay' className='flex h-9 w-9 items-center justify-center rounded-lg bg-background text-secondary transition hover:text-text cursor-pointer'>
                           <FiEye size={18}/>
                         </button>
 
@@ -104,7 +106,7 @@ export default function CarList({cars} : CarListProps) {
                           <FiEdit2 size={18}/>
                         </button>
 
-                        <button type='button' title='Sil' className='flex h-9 w-9 items-center justify-center rounded-lg bg-red-50 text-red-500 transition hover:bg-red-100 hover:text-red-700 cursor-pointer'>
+                        <button onClick={() => onDelete(car)} type='button' title='Sil' className='flex h-9 w-9 items-center justify-center rounded-lg bg-red-50 text-red-500 transition hover:bg-red-100 hover:text-red-700 cursor-pointer'>
                           <FiTrash2 size={18}/>
                         </button>
 
