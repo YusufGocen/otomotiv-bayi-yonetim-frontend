@@ -11,6 +11,8 @@ import DetailModal from "../../components/Common/DetailModal";
 import CarDetail from "../../components/Car/CarDetail";
 import ConfirmModal from "../../components/Common/ConfirmModal";
 import CarForm from "../../components/Car/CarForm";
+import TransmissionDistributionCard from "../../components/Car/TransmissionDistributionCard";
+import PageContentLayout from "../../components/Common/PageContentLayout";
 
 export default function CarPage() {
 
@@ -78,11 +80,18 @@ export default function CarPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
-
-          <div className="min-w-0">
-            <CarList cars={cars} 
-            onDetail={(car)=>{
+      <PageContentLayout
+          sidebar={
+            <>
+              <BrandDistributionProps cars={cars} />
+              <TransmissionDistributionCard cars={cars} />
+              <RecentCarsCard cars={cars} />
+            </>
+          }
+        >
+          <CarList
+            cars={cars}
+            onDetail={(car) => {
               setSelectedCar(car);
               setIsDetailModalOpen(true);
             }}
@@ -90,28 +99,8 @@ export default function CarPage() {
               setCarToDelete(car);
               setIsDeleteModalOpen(true);
             }}
-            />
-          </div>
-
-          <div className="flex flex-col gap-6">
-
-            <BrandDistributionProps cars={cars}/>
-
-            <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
-              <h3 className="font-semibold text-gray-900">
-                Kasa Tipi Dağılımı
-              </h3>
-
-              <div className="mt-4 h-48 flex items-center justify-center text-gray-400">
-                Grafik gelecek
-              </div>
-            </div>
-
-              <RecentCarsCard cars={cars}/>
-
-          </div>
-
-      </div>
+          />
+      </PageContentLayout>
 
       <DetailModal
       isOpen={isDetailModalOpen}

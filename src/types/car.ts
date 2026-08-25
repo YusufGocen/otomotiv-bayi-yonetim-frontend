@@ -6,6 +6,7 @@ export interface Car{
     brand: string;
     model: string;
     productionYear: number;
+    transmissionType: "OTOMATIK" | "MANUEL";
     price: number;
     currencyType: string;
     damagePrice: number;
@@ -20,6 +21,7 @@ export interface Car{
     productionYear: number;
     price: number;
     currencyType: "Tl" | "USD";
+    transmissionType: "OTOMATIK" | "MANUEL";
     damagePrice: number;
     carStatusType: "SALABLE";
   }

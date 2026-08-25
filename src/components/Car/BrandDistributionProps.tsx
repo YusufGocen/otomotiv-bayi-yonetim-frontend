@@ -60,7 +60,7 @@ export default function BrandDistributionCard({
           </div>
         </div>
 
-        <div className="mt-5 h-56">
+        <div className="mt-5 h-47">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie           

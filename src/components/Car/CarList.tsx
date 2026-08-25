@@ -38,6 +38,10 @@ export default function CarList({cars , onDetail , onDelete} : CarListProps) {
                   <th className="px-5 py-4 font-semibold text-dark">
                     Yıl
                   </th>
+
+                  <th className="px-5 py-4 font-semibold text-dark">
+                    Vites
+                  </th>
       
                   <th className="px-5 py-4 font-semibold text-dark">
                     Plaka
@@ -64,23 +68,29 @@ export default function CarList({cars , onDetail , onDelete} : CarListProps) {
                     className="border-b border-border last:border-0 hover:bg-background"
                   >
       
-                    <td className="px-5 py-4 text-text">
+                    <td className="px-6 py-5 text-text">
                       {car.brand}
                     </td>
       
-                    <td className="px-5 py-4 text-text">
+                    <td className="px-6 py-5 text-text">
                       {car.model}
                     </td>
       
-                    <td className="px-5 py-4 text-secondary">
+                    <td className="px-6 py-5 text-secondary">
                       {car.productionYear}
                     </td>
+
+                    <td className="px-6 py-5 text-text">
+                      {car.transmissionType === "OTOMATIK"
+                        ? "Otomatik"
+                        : "Manuel"}
+                    </td>
       
-                    <td className="px-5 py-4 text-text">
+                    <td className="px-6 py-5 text-text">
                       {car.plaka}
                     </td>
       
-                    <td className="px-5 py-4 text-text">
+                    <td className="px-6 py-5 text-text">
                       {car.price} {car.currencyType}
                     </td>
       

@@ -52,8 +52,30 @@ export default function CarForm({isOpen , onClose,onSuccess}:CarFormProps){
                 <Input label="Marka" name="brand"{...register("brand", {required: "Marka alanı zorunludur.",})} error={errors.brand?.message} />
                 <Input label="Model" name="model"{...register("model", {required: "Model alanı zorunludur.",})} error={errors.model?.message} />
                 <Input label="Üretim Yılı" name="productionYear" type="number" {...register("productionYear", {required: "Üretim Yılı zorunludur.",valueAsNumber: true,})} error={errors.productionYear?.message}/>
-                <Input label="Fiyat" name="price" type="number" {...register("price", {required: "Fiyat zorunludur.",valueAsNumber: true,})} error={errors.price?.message}/>
+                <div>
+                    <label className="mb-2 block text-sm font-semibold text-text">
+                        Vites
+                    </label>
+
+                    <select
+                        {...register("transmissionType", {
+                        required: "Vites seçilmelidir.",
+                        })}
+                        className="w-full rounded-xl border border-border bg-background px-4 py-3 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    >
+                        <option value="">Vites seçiniz</option>
+                        <option value="OTOMATIK">Otomatik</option>
+                        <option value="MANUEL">Manuel</option>
+                    </select>
+
+                    {errors.transmissionType && (
+                        <p className="mt-2 text-sm text-danger">
+                        {errors.transmissionType.message}
+                        </p>
+                    )}
+                </div>
                 <Input label="Hasar Bedeli" name="damagePrice" type="number" {...register("damagePrice", {required: "Hasar Bedeli zorunludur.",valueAsNumber: true,})} error={errors.damagePrice?.message}/>
+                <Input label="Fiyat" name="price" type="number" {...register("price", {required: "Fiyat zorunludur.",valueAsNumber: true,})} error={errors.price?.message}/>
                 <div >
                     <label className="mb-2 block text-sm font-semibold text-text">Para Birimi</label>
                     <select {...register("currencyType")}
